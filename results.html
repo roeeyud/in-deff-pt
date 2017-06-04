@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/app.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+</head>
+<body id="the-body">
+<h2>The results</h2>
+<table>
+    <thead>
+    <td>ID</td>
+    <td>Results</td>
+    </thead>
+    <tbody id="tablebody"></tbody>
+</table>
+<script>
+    var results = [
+        {
+            id: '1234',
+            result: 1
+        },
+        {
+            id: '1234',
+            result: 2
+        },
+        {
+            id: '1234',
+            result: 3
+        },
+        {
+            id: '1234',
+            result: 4
+        }
+    ];
+
+
+    function writeTable(results) {
+        // cache <tbody> element:
+        var tbody = $('#tablebody');
+        results.forEach(function (elem) {
+            var tr = $('<tr/>').appendTo(tbody);
+            tr.append('<td>' + elem.id + '</td>');
+            tr.append('<td>' + elem.result + '</td>');
+        });
+    }
+
+    $.get('/getResults', function (res) {
+        writeTable(res);
+    });
+
+    //writeTable(results);
+</script>
+
+</body>
+</html>

@@ -3,6 +3,10 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   jsonfile = require('jsonfile');
 
+
+jsonfile.spaces = 4
+
+
 app.set('views', __dirname + '/');
 app.set('view engine', 'ejs');
 
@@ -15,12 +19,31 @@ app.get('/', function (req, res) {
     res.sendfile('index.html');
 });
 
+app.get('/results', function (req, res) {
+    res.sendfile('results.html');
+});
+
 app.get('/app.css', function (req, res) {
     res.sendfile('app.css');
 });
 
 app.get('/app.js', function (req, res) {
     res.sendfile('client.js');
+});
+
+app.post('/result', function (req, res) {
+    jsonfile.readFile('./results.json', function(err, obj) {
+        obj.push(req.body);
+        jsonfile.writeFile('./results.json', obj, function (err) {
+            res.send(200);
+        });
+    });
+});
+
+app.get('/getResults', function (req, res) {
+    jsonfile.readFile('./results.json', function(err, obj) {
+        res.send(obj);
+    });
 });
 
 app.listen(process.env.PORT || 4000);

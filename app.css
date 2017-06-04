@@ -1,3 +1,11 @@
 body {
-    text-align: right;
+    direction: rtl;
+}
+
+.step-0, .step-1, .step-2 {
+    display: none;
+}
+
+.show-step-0 .step-0, .show-step-1 .step-1, .show-step-2 .step-2{
+    display: block;
 }
