@@ -7,7 +7,8 @@
     "ejs": "1.0.x",
     "express": "4.4.x",
     "fs": "0.0.1-security",
-    "gm": "^1.23.0"
+    "gm": "^1.23.0",
+    "jsonfile": "^2.2.3"
   },
   "devDependencies": {
 
