@@ -23,5 +23,4 @@ app.get('/app.js', function (req, res) {
     res.sendfile('client.js');
 });
 
-// app.listen(process.env.PORT);
-app.listen(4000);
+app.listen(process.env.PORT || 4000);
