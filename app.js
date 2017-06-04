@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.get('/', function (req, res) {
-    res.render('index.html');
+    res.sendfile('index.html');
 });
 
 app.get('/app.js', function (req, res) {
@@ -20,3 +20,4 @@ app.get('/app.js', function (req, res) {
 });
 
 app.listen(process.env.PORT);
+// app.listen(3000);
