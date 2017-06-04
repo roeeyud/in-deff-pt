@@ -19,4 +19,4 @@ app.get('/app.js', function (req, res) {
     res.sendfile('app.js');
 });
 
-app.listen();
+app.listen(process.env.PORT);
