@@ -15,9 +15,13 @@ app.get('/', function (req, res) {
     res.sendfile('index.html');
 });
 
-app.get('/app.js', function (req, res) {
-    res.sendfile('app.js');
+app.get('/app.css', function (req, res) {
+    res.sendfile('app.css');
 });
 
-app.listen(process.env.PORT);
-// app.listen(3000);
+app.get('/app.js', function (req, res) {
+    res.sendfile('client.js');
+});
+
+// app.listen(process.env.PORT);
+app.listen(4000);
