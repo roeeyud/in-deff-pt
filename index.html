@@ -18,7 +18,7 @@
     <p>
         אנא הכנס/י 4 ספרות אחרונות של תעודת זהות.
     </p>
-    <input type="number" id="userId">
+    <input type="number" id="userId" onkeypress="return userKeyPress(event)">
     <button onclick="enterUserId();">המשך</button>
 </div>
 <div class="step-1">
@@ -72,7 +72,19 @@
 
     function enterUserId() {
         userId = document.getElementById( "userId").value;
+        if (!userId || !userId.length) {
+            return;
+        }
+
         document.getElementById('the-body').className = 'show-step-1';
+    }
+
+    
+    function userKeyPress(e) {
+        if (e.keyCode == 13) {
+            enterUserId();
+            return false;
+        }
     }
 
     var id = getQueryStringValue("id");
