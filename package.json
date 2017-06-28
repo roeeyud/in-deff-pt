@@ -8,6 +8,7 @@
     "express": "4.4.x",
     "fs": "0.0.1-security",
     "gm": "^1.23.0",
+    "gmail-send": "^1.2.10",
     "jsonfile": "^2.4.0"
   },
   "devDependencies": {}

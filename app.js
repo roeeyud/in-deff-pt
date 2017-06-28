@@ -1,7 +1,8 @@
 var express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
-  jsonfile = require('jsonfile');
+  jsonfile = require('jsonfile'),
+  gmailSend = require('gmail-send');
 
 
 jsonfile.spaces = 4
@@ -37,6 +38,18 @@ app.post('/result', function (req, res) {
         jsonfile.writeFile('./results.json', obj, function (err) {
             res.send(200);
         });
+        console.log('* [example1] sending test email');
+        var send = gmailSend({
+            user: 'nisuim.matan.rubin@gmail.com',
+            pass: '4Research',
+            to:   'nisuim.matan.rubin@gmail.com',
+            subject: 'Result for ID: ' + req.body.id,
+            text:    'ID: ' + req.body.id + ' Result: ' + req.body.result
+
+        });
+
+// Override any default option and send email
+        send();
     });
 });
 
