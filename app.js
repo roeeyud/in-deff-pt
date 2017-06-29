@@ -20,6 +20,10 @@ app.get('/', function (req, res) {
     res.sendfile('index.html');
 });
 
+app.get('/client.js', function (req, res) {
+    res.sendfile('client.js');
+});
+
 app.get('/results', function (req, res) {
     res.sendfile('results.html');
 });
